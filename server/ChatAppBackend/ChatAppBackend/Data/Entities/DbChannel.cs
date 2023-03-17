@@ -13,6 +13,6 @@ public class DbChannel
 
     public string ChannelName { get; set; }
 
-    public ICollection<DbMessage> LibraryItems { get; set; }
+    public ICollection<DbMessage> Messages { get; set; }
         = new List<DbMessage>();
 }

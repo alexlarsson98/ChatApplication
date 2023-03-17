@@ -8,8 +8,6 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<DbChannel, ChannelV1>();
-
         CreateMap<DbMessage, MessageV1>();
     }
 }

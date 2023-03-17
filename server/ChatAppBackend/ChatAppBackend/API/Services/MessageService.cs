@@ -42,4 +42,19 @@ public class MessageService : IMessageService
 
         return _mapper.Map<MessageV1>(entity);
     }
+
+    public async Task<List<MessageV1>?> GetMessagesByChannelId(uint channelId)
+    {
+        var entity = await _dbContext.Channels
+                        .Where(c => c.Id.Equals(channelId))
+                        .Include(c => c.Messages)
+                        .FirstOrDefaultAsync();
+
+        if (entity == null)
+        {
+            return null;
+        }
+
+        return _mapper.Map<List<MessageV1>>(entity.Messages);
+    }
 }

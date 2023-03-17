@@ -12,7 +12,7 @@ public class DbMessage
 
     public string User { get; set; }
     public string Message { get; set; }
-    public DateTime CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     [ForeignKey("Channel")]
     public uint ChannelId { get; set; }

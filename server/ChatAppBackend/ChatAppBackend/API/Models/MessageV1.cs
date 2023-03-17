@@ -1,6 +1,6 @@
 ﻿namespace ChatAppBackend.API.Models;
 
-public class MessageV1
+public record MessageV1
 {
     public uint? Id { get; set; }
     public string User { get; set; }
