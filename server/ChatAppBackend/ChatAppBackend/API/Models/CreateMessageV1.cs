@@ -1,9 +1,8 @@
 ﻿namespace ChatAppBackend.API.Models;
 
-public class MessageV1
+public record CreateMessageV1
 {
-    public uint? Id { get; set; }
     public string User { get; set; }
     public string Message { get; set; }
-    public DateTime CreatedAt { get; set; }
+    public uint ChannelId { get; set; }
 }

@@ -1,4 +1,7 @@
+using ChatAppBackend.API.Exceptions;
+using ChatAppBackend.API.Services;
 using ChatAppBackend.Data;
+using ChatAppBackend.Data.Seeds;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +15,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+builder.Services.AddScoped<IMessageService, MessageService>();
 
 var app = builder.Build();
 
@@ -21,6 +27,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ErrorHandlerMiddleware>();
+
+app.InitializeDatabase();
 
 app.UseHttpsRedirection();
 
