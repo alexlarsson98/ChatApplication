@@ -16,23 +16,23 @@ public class StatisticsController : ControllerBase
         _service = service;
     }
 
-    [HttpGet(BaseUrlV1 + "/get-number-of-messages")]
-    public async Task<ActionResult<StatisticV1>> GetNumberOfMessages()
+    [HttpGet(BaseUrlV1)]
+    public async Task<ActionResult<StatisticsV1>> GetStatistics()
     {
-        return Ok(await _service.GetNumberOfMessages());
+        return Ok(await _service.GetStatistics());
     }
 
-    [HttpGet(BaseUrlV1 + "/get-number-of-messages-by-user/{user}")]
-    public async Task<ActionResult<StatisticV1>> GetNumberOfMessagesByUser(
+    [HttpGet(BaseUrlV1 + "/by-user/{user}")]
+    public async Task<ActionResult<StatisticsV1>> GetStatisticsByUser(
         [Required, FromRoute] string user)
     {
-        return Ok(await _service.GetNumberOfMessagesByUser(user));
+        return Ok(await _service.GetStatisticsByUser(user));
     }
 
-    [HttpGet(BaseUrlV1 + "/get-number-of-messages-by-channel-id/{channelId}")]
-    public async Task<ActionResult<StatisticV1>> GetNumberOfMessagesByChannelId(
+    [HttpGet(BaseUrlV1 + "/by-channel-id/{channelId}")]
+    public async Task<ActionResult<StatisticsV1>> GetStatisticsByChannelId(
         [Required, FromRoute] uint channelId)
     {
-        return Ok(await _service.GetNumberOfMessagesByChannelId(channelId));
+        return Ok(await _service.GetStatisticsByChannelId(channelId));
     }
 }

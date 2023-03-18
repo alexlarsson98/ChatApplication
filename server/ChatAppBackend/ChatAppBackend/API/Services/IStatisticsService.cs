@@ -4,7 +4,7 @@ namespace ChatAppBackend.API.Services;
 
 public interface IStatisticsService
 {
-    Task<StatisticV1> GetNumberOfMessages();
-    Task<StatisticV1> GetNumberOfMessagesByUser(string user);
-    Task<StatisticV1> GetNumberOfMessagesByChannelId(uint channelId);
+    Task<StatisticsV1> GetStatistics();
+    Task<StatisticsV1> GetStatisticsByUser(string user);
+    Task<StatisticsV1> GetStatisticsByChannelId(uint channelId);
 }

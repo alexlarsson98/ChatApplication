@@ -16,7 +16,7 @@ public class MessageController : ControllerBase
         _service = service;
     }
 
-    [HttpPost(BaseUrlV1 + "/create-message")]
+    [HttpPost(BaseUrlV1)]
     public async Task<ActionResult<MessageV1>> CreateMessage(
         [Required, FromBody] CreateMessageV1 request)
     {

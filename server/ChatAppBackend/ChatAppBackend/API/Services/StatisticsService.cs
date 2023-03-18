@@ -13,29 +13,29 @@ public class StatisticsService : IStatisticsService
         _dbContext = dbContext;
     }
 
-    public async Task<StatisticV1> GetNumberOfMessages()
+    public async Task<StatisticsV1> GetStatistics()
     {
         var entities = await _dbContext.Messages
                         .ToListAsync();
 
-        return new StatisticV1 { NumberOfMessages = entities.Count() };
+        return new StatisticsV1 { NumberOfMessages = entities.Count() };
     }
 
-    public async Task<StatisticV1> GetNumberOfMessagesByUser(string user)
+    public async Task<StatisticsV1> GetStatisticsByUser(string user)
     {
         var entities = await _dbContext.Messages
             .Where(m => m.User == user)
             .ToListAsync();
 
-        return new StatisticV1 { NumberOfMessages = entities.Count() };
+        return new StatisticsV1 { NumberOfMessages = entities.Count() };
     }
 
-    public async Task<StatisticV1> GetNumberOfMessagesByChannelId(uint channelId)
+    public async Task<StatisticsV1> GetStatisticsByChannelId(uint channelId)
     {
         var entities = await _dbContext.Messages
             .Where(m => m.ChannelId == channelId)
             .ToListAsync();
 
-        return new StatisticV1 { NumberOfMessages = entities.Count() };
+        return new StatisticsV1 { NumberOfMessages = entities.Count() };
     }
 }
