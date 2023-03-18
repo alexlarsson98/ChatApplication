@@ -1,6 +1,7 @@
 ﻿using ChatAppBackend.API.Models;
 using ChatAppBackend.API.Services;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
 
 namespace ChatAppBackend.API.Controllers;
@@ -17,6 +18,10 @@ public class MessageController : ControllerBase
     }
 
     [HttpPost(BaseUrlV1)]
+    [SwaggerOperation(
+        Summary = "Creates a new Message",
+        Description = "Creates a message based on the request body"
+    )]
     public async Task<ActionResult<MessageV1>> CreateMessage(
         [Required, FromBody] CreateMessageV1 request)
     {
@@ -24,6 +29,10 @@ public class MessageController : ControllerBase
     }
 
     [HttpGet(BaseUrlV1 + "/get-messages-by-channel-id/{channelId}")]
+    [SwaggerOperation(
+        Summary = "Get messages by channel id",
+        Description = "Fetches messages for a specified channel id"
+    )]
     public async Task<ActionResult<MessageV1>> GetMessagesByChannelId(
         [Required, FromRoute] uint channelId)
     {

@@ -16,6 +16,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddSwaggerGen(c => { c.EnableAnnotations(); });
 
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<IStatisticsService, StatisticsService>();
