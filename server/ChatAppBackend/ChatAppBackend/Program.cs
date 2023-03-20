@@ -20,6 +20,7 @@ builder.Services.AddSwaggerGen(c => { c.EnableAnnotations(); });
 
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<IStatisticsService, StatisticsService>();
+builder.Services.AddScoped<IChannelService, ChannelService>();
 
 var app = builder.Build();
 
