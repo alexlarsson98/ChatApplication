@@ -22,7 +22,7 @@ public class StatisticsController : ControllerBase
         Summary = "Fetch statistics",
         Description = "Fetches all statistics"
     )]
-    public async Task<ActionResult<StatisticsV1>> GetStatistics()
+    public async Task<ActionResult<StatisticsResponseV1>> GetStatistics()
     {
         return Ok(await _service.GetStatistics());
     }
@@ -32,7 +32,7 @@ public class StatisticsController : ControllerBase
         Summary = "Fetch statistics by user",
         Description = "Fetches statistics belonging to a specified user"
     )]
-    public async Task<ActionResult<StatisticsV1>> GetStatisticsByUser(
+    public async Task<ActionResult<StatisticsResponseV1>> GetStatisticsByUser(
         [Required, FromRoute] string user)
     {
         return Ok(await _service.GetStatisticsByUser(user));
@@ -43,7 +43,7 @@ public class StatisticsController : ControllerBase
         Summary = "Fetch statistics by channel id",
         Description = "Fetches statistics belonging to a specified channel"
     )]
-    public async Task<ActionResult<StatisticsV1>> GetStatisticsByChannelId(
+    public async Task<ActionResult<StatisticsResponseV1>> GetStatisticsByChannelId(
         [Required, FromRoute] uint channelId)
     {
         return Ok(await _service.GetStatisticsByChannelId(channelId));
