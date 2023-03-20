@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppBackend", "ChatAppBackend\ChatAppBackend.csproj", "{50A24DB7-3753-486F-8CD9-29232CEFD4AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppBackend.Tests", "ChatAppBackend.Tests\ChatAppBackend.Tests.csproj", "{F15ADB4B-3164-445E-9965-2C998F68AAEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppBackend.Tests", "ChatAppBackend.Tests\ChatAppBackend.Tests.csproj", "{F15ADB4B-3164-445E-9965-2C998F68AAEE}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{569727AB-0F7B-4DD1-B154-1B32D21194BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F15ADB4B-3164-445E-9965-2C998F68AAEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F15ADB4B-3164-445E-9965-2C998F68AAEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F15ADB4B-3164-445E-9965-2C998F68AAEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{569727AB-0F7B-4DD1-B154-1B32D21194BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{569727AB-0F7B-4DD1-B154-1B32D21194BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{569727AB-0F7B-4DD1-B154-1B32D21194BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{569727AB-0F7B-4DD1-B154-1B32D21194BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
