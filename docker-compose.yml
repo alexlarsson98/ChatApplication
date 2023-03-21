@@ -4,6 +4,18 @@ networks:
   chatapplication:
 
 services:
+  chatappfrontend:
+    container_name: chatappfrontend
+    image: chatappfrontend
+    build: ./client/chat-app-frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client/chat-app-frontend:/app
+    stdin_open: true
+    tty: true
+    networks:
+      - chatapplication
   chatappdb:
     container_name: chatappdb
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -18,7 +30,7 @@ services:
     image: chatappbackend
     build:
       context: .
-      dockerfile: ChatAppBackend/Dockerfile
+      dockerfile: server/ChatAppBackend/ChatAppBackend/Dockerfile
     ports:
       - 8001:80
     depends_on:
