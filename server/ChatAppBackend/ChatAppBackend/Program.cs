@@ -11,6 +11,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ChatAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ChatAppConnection")));
 
+//var CorsPolicy = "_myAllowSpecificOrigins";
+
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy(name: CorsPolicy,
+//                      builder =>
+//                      {
+
+//                          builder.AllowAnyHeader().WithMethods().WithOrigins("https://localhost:3000",
+//                                                                             "http://localhost:3000");
+//                      });
+//});
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -33,7 +46,16 @@ app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.InitializeDatabase();
 
-app.UseHttpsRedirection();
+//app.UseCors(CorsPolicy);
+
+app.UseRouting();
+
+// global cors policy
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin 
+    .AllowCredentials());
 
 app.UseAuthorization();
 
